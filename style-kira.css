@@ -1,0 +1,387 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Roboto+Condensed&display=swap");
+
+:root {
+  --ff-heading: "Roboto Condensed", sans-serif;
+  --ff-text: "Josefin Sans", sans-serif;
+
+  --fw-bold-400: 400;
+  --fw-bolder-600: 600;
+  --fw-bolder-800: 800;
+
+  --color-primary: #00958f;
+  --color-dark: #424656;
+  --color-light: #f5f9ff;
+  --color-neutral: #e3e6f3;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: var(--ff-heading);
+  font-weight: var(--fw-bolder-800);
+}
+
+p,
+span,
+a,
+button,
+input,
+textarea {
+  font-family: var(--ff-text);
+  line-height: 1.5;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style-type: none;
+}
+
+/* --- Header --- */
+
+header {
+  width: 100%;
+  padding: 1.5em 2em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  background-color: var(--color-neutral);
+}
+
+nav {
+  --r: -90deg;
+  --tt: -200%;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+nav .fa-solid {
+  font-size: 1.75rem;
+  transform: rotate(var(--r));
+  cursor: pointer;
+  transition: transform 0.5s;
+}
+
+.navBtn-toggler {
+  --r: 0deg;
+}
+
+.nav-items {
+  display: flex;
+  align-items: center;
+  column-gap: 1.5em;
+  margin-left: 2em;
+  transform: translate(var(--tt));
+  transition: transform 0.5s;
+}
+
+.navItems-toggler {
+  --tt: 0%;
+}
+
+.nav-items li a {
+  color: var(--color-dark);
+}
+
+.nav-items li a:hover {
+  color: var(--color-primary);
+}
+.nav-items li::after {
+  content: "";
+  width: 0%;
+  height: 3px;
+  display: block;
+  margin: -6px auto 0;
+  background-color: var(--color-primary);
+  transition: width 0.5s;
+}
+
+.nav-items li:hover::after {
+  width: 100%;
+}
+
+.logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 2.25rem;
+  color: var(--color-dark);
+  letter-spacing: 0.25em;
+  transform: translate(-50%, -50%);
+}
+
+.logo a span {
+  font-family: var(--ff-heading) !important;
+  color: var(--color-primary);
+}
+
+.tools {
+  display: flex;
+  column-gap: 2em;
+}
+
+.tools .fa-solid {
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+.tools .fa-solid:hover {
+  color: var(--color-primary);
+}
+
+.container {
+  max-width: 1440px;
+  margin: 2em auto;
+  padding: 3em;
+}
+/* ---Hero--- */
+
+.hero {
+  min-height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.cols {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.even-col {
+  flex-basis: 48%;
+}
+
+.even-col:first-of-type p:first-of-type {
+  font-size: 1.25rem;
+  font-weight: var(--fw-bolder-600);
+  color: var(--color-dark);
+}
+
+.even-col:first-of-type h2 {
+  font-size: 3rem;
+  color: var(--color-dark);
+  font-weight: var(--fw-bolder-800);
+  letter-spacing: 0.1em;
+}
+
+.even-col:first-of-type h2 span {
+  color: var(--color-primary);
+}
+
+.even-col:first-of-type p:last-of-type {
+  font-weight: var(--fw-bold-400);
+  color: var(--color-dark);
+}
+
+.hero-btn {
+  display: inline-block;
+  position: relative;
+  margin: 1.5em 0;
+  cursor: pointer;
+  margin-left: -1.5em;
+  overflow: hidden;
+}
+
+.hero-btn::after {
+  content: "Shop Now";
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  top: 30%;
+  left: 30%;
+  color: var(--color-primary);
+  font-family: var(--ff-text);
+  font-weight: var(--fw-bolder-600);
+  transform: scale(1);
+  transform-origin: left;
+  transition: transform 0.2s;
+  z-index: -1;
+}
+
+.hero-btn:hover::after {
+  transform: scale(1.1);
+}
+
+.hero-btn img {
+  z-index: 1;
+}
+
+.even-col:last-of-type {
+  mask-image: url(images/mask.png);
+  -webkit-mask-image: url(images/mask.png);
+  mask-size: 120%;
+  -webkit-mask-size: 120%;
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-position: center;
+}
+
+.even-col:last-of-type img {
+  width: 100%;
+  transform: scale(1);
+  transition: transform 0.75s;
+}
+
+.even-col:last-of-type img:hover {
+  transform: scale(1.25);
+}
+
+/* --- Features --- */
+
+/* -- Featured-cards -- */
+
+.features {
+  background-color: var(--color-light);
+}
+.featured-cards .card {
+  width: 200px;
+  padding: 1em;
+  background-color: #fff;
+  box-shadow: 0 0 2px var(--color-dark);
+}
+
+.featured-cards .card img {
+  object-fit: scale-down;
+}
+
+p[class^="card-text-"] {
+  width: 80%;
+  margin: 2em auto 0;
+  padding: 0.25em;
+  text-align: center;
+  color: var(--color-primary);
+  font-weight: var(--fw-bolder-600);
+  background-color: var(--text-bg-color);
+}
+
+.card-text-1 {
+  --text-bg-color: #f8e7f1;
+}
+
+.card-text-2 {
+  --text-bg-color: #e1ecd1;
+}
+.card-text-3 {
+  --text-bg-color: #abd0e9;
+}
+.card-text-4 {
+  --text-bg-color: #cfc6ed;
+}
+.card-text-5 {
+  --text-bg-color: #f6e5db;
+}
+.card-text-6 {
+  --text-bg-color: #dbf4f6;
+}
+
+/* -- Featured-Products -- */
+
+.featured-products {
+  margin-top: 8em;
+}
+
+.featured-products h2 {
+  font-size: 3.25rem;
+  color: var(--color-dark);
+  text-align: center;
+}
+
+.featured-products > p {
+  margin-bottom: 5em;
+  color: var(--color-dark);
+  opacity: 0.5;
+  text-align: center;
+}
+
+.product-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, auto));
+  gap: 2em;
+}
+
+.product-items .card {
+  background-color: #fff;
+  padding: 1em;
+  border-radius: 16px;
+  box-shadow: 0 0 2px var(--color-dark);
+  transition: box-shadow 0.2s;
+  cursor: pointer;
+}
+
+.product-items .card:hover {
+  box-shadow: 0 0 5px var(--color-primary);
+}
+
+.product-items .card img {
+  border-radius: 16px;
+}
+
+.product-items .card-body {
+  padding: 1em 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  position: relative;
+}
+
+.brand-name {
+  color: var(--color-dark);
+}
+
+.product-name {
+  color: var(--color-primary);
+  font-weight: var(--fw-bold-400);
+}
+
+.rating-stars {
+  color: #ff9100;
+}
+
+.price-tag {
+  font-size: 1.25rem;
+  font-weight: var(--fw-bolder-800);
+  color: var(--color-dark);
+}
+
+.product-items .card-body > .fa-solid {
+  padding: 0.75em;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  text-align: right;
+  color: var(--color-dark);
+  border: 2px solid var(--color-primary);
+  opacity: 0.7;
+  border-radius: 16px;
+  transition: all 0.2s;
+}
+
+.product-items .card-body > .fa-solid:hover {
+  color: var(--color-neutral);
+  background-color: var(--color-primary);
+}
