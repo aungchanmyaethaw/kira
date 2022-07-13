@@ -385,3 +385,12 @@ p[class^="card-text-"] {
   color: var(--color-neutral);
   background-color: var(--color-primary);
 }
+
+/* --- Services --- */
+
+.services {
+  width: 100%;
+  background-image: url(images/banner.jpg);
+  background-position: center;
+  background-size: cover;
+}
