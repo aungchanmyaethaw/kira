@@ -60,6 +60,7 @@ ul {
 }
 
 .container {
+    width: 90%;
     max-width: 1440px;
     margin: auto;
     padding: 5em 3em;
@@ -84,8 +85,10 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    position: relative;
+    position: sticky;
+    top: 0;
     background-color: var(--color-neutral);
+    z-index: 3;
 }
 
 nav {
@@ -325,7 +328,7 @@ span[class^='tool-tip-']::before {
     top: 0;
     right: var(--r);
     background-color: var(--color-neutral);
-    transition: right 0.2s;
+    transition: right 0.4s;
     z-index: 3;
 }
 
