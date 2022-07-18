@@ -1,541 +1,1058 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style-kira.css" />
-    <script
-      src="https://kit.fontawesome.com/bb827868b4.js"
-      crossorigin="anonymous"
-    ></script>
-    <title>Kira</title>
-  </head>
-  <body>
-    <!----- Header ----->
-    <header>
-      <!--- Nav-bar --->
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style-kira.css" />
+        <script
+            src="https://kit.fontawesome.com/bb827868b4.js"
+            crossorigin="anonymous"
+        ></script>
+        <title>Kira</title>
+    </head>
+    <body>
+        <!----- Header ----->
+        <header>
+            <!--- Nav-bar --->
 
-      <nav>
-        <i class="fa-solid fa-bars" data-navBar-btn></i>
-        <ul class="nav-items" data-nav-items>
-          <li><a href="#">HOME</a></li>
-          <li><a href="#">SHOP</a></li>
-          <li><a href="#">ABOUT</a></li>
-          <li><a href="#">CONTACT</a></li>
-        </ul>
-      </nav>
+            <nav>
+                <i class="fa-solid fa-bars" data-navBar-btn></i>
+                <ul class="nav-items" data-nav-items>
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="#">SHOP</a></li>
+                    <li><a href="#">ABOUT</a></li>
+                    <li><a href="#">CONTACT</a></li>
+                </ul>
+            </nav>
 
-      <!--- Logo --->
-      <h1 class="logo">
-        <a href="#">KI<span>R</span>A</a>
-      </h1>
-      <!--- Tools --->
-      <div class="tools">
-        <i class="fa-solid fa-user"></i>
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <i class="fa-solid fa-cart-shopping"></i>
-      </div>
-    </header>
-    <!----- Main ----->
-    <main>
-      <!--- Hero --->
+            <!--- Logo --->
+            <h1 class="logo">
+                <a href="#">KI<span>R</span>A</a>
+            </h1>
+            <!--- Tools --->
+            <div class="right-side-menu">
+                <div class="right-side-item-1">
+                    <i class="fa-solid fa-user" data-profile></i>
+                    <span class="tool-tip-1" data-toolTip>Profile</span>
+                </div>
 
-      <section class="hero">
-        <div class="container">
-          <div class="cols">
-            <div class="even-col">
-              <p class="hero-text">Trade-in-offer</p>
-              <h2 class="hero-heading">
-                Super Value Deals<br />
-                <span>On All Products</span>
-              </h2>
-              <p class="hero-text">Save more with coupon & up to 70% off!</p>
-              <div class="hero-btn">
-                <a href="#"
-                  ><img src="images/hero-button.png" alt="hero-button"
-                /></a>
-              </div>
+                <div class="right-side-item-2">
+                    <i class="fa-solid fa-magnifying-glass" data-search></i>
+                    <span class="tool-tip-2" data-toolTip>Search</span>
+                </div>
+                <div class="right-side-item-3">
+                    <i class="fa-solid fa-cart-shopping" data-wishlist></i>
+                    <span class="tool-tip-3" data-toolTip>Wishlist</span>
+                </div>
             </div>
-            <div class="even-col">
-              <div class="mask-img">
-                <img src="images/hero-woman.jpg" alt="" class="hero-img" />
-              </div>
+
+            <!--- Modal --->
+
+            <dialog class="profile-modal" data-profile-modal>
+                <div class="profile-modal-close-btn" data-modal-close-btn>
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+                <h2 class="profile-modal-heading">Hello Peter!</h2>
+                <div class="cols">
+                    <div class="even-col">
+                        <img
+                            src="images/user.jpg"
+                            alt="user"
+                            class="profile-modal-img"
+                        />
+                        <p>
+                            Welcome!From your account dashboard you can view and
+                            edit your details.
+                        </p>
+                    </div>
+                    <div class="even-col">
+                        <ul>
+                            <li><a href="#">Wishlist</a></li>
+                            <li><a href="#">Orders</a></li>
+                            <li><a href="#">Addresses</a></li>
+                            <li><a href="#">Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </dialog>
+
+            <!--- Search --->
+
+            <div class="search" data-searchBox-container>
+                <div class="cols">
+                    <input
+                        type="text"
+                        name=""
+                        id="search"
+                        placeholder="What you need ..."
+                        data-searchinput
+                    />
+                </div>
+
+                <ul class="search-list" data-search-list></ul>
             </div>
-          </div>
-        </div>
-      </section>
 
-      <!--- Features & Products --->
+            <!--- Wishlist --->
 
-      <section class="features-and-products">
-        <div class="container">
-          <!-- Featured-cards -->
-
-          <div class="featured-cards cols">
-            <div class="card">
-              <img src="images/feature-1.png" alt="free-shipping" />
-              <p class="card-text-1">Free Shopping</p>
+            <div class="wishlist" data-wishlist-container>
+                <i
+                    class="fa-solid fa-xmark wishlist-close-btn"
+                    data-wislist-container-close-btn
+                ></i>
+                <div class="container" data-wishlist-sub-container>
+                    <ul class="wishlist-header cols">
+                        <div class="col">
+                            <h3>Image</h3>
+                        </div>
+                        <div class="col">
+                            <h3>Brand</h3>
+                        </div>
+                        <div class="col">
+                            <h3>Name</h3>
+                        </div>
+                        <div class="col">
+                            <h3>Price</h3>
+                        </div>
+                    </ul>
+                </div>
             </div>
-            <div class="card">
-              <img src="images/feature-2.png" alt="online-order" />
-              <p class="card-text-2">Online Order</p>
-            </div>
-            <div class="card">
-              <img src="images/feature-3.png" alt="save-money" />
-              <p class="card-text-3">Save Money</p>
-            </div>
-            <div class="card">
-              <img src="images/feature-4.png" alt="promotions" />
-              <p class="card-text-4">Promotions</p>
-            </div>
-            <div class="card">
-              <img src="images/feature-5.png" alt="happy-sell" />
-              <p class="card-text-5">Happy Sell</p>
-            </div>
-            <div class="card">
-              <img src="images/feature-6.png" alt="24/7-support" />
-              <p class="card-text-6">24/7 Support</p>
-            </div>
-          </div>
+        </header>
+        <!----- Main ----->
+        <main>
+            <!--- Hero --->
 
-          <!-- Feature-items -->
-
-          <div class="featured-and-new-products">
-            <h2>Featured Products</h2>
-            <p>Summer Collection New Modern Design</p>
-
-            <div class="product-items">
-              <div class="card">
-                <img src="images/feature-shirt-1.jpg" alt="feature-shirt-1" />
-
-                <div class="card-body">
-                  <span class="brand-name">Adidas</span>
-                  <h3 class="product-name">Adidas Tee</h3>
-                  <div class="rating-stars">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                  </div>
-                  <p class="price-tag">$49.99</p>
-                  <i class="fa-solid fa-cart-plus"></i>
+            <section class="hero">
+                <div class="container">
+                    <div class="cols">
+                        <div class="even-col">
+                            <p class="hero-text">Trade-in-offer</p>
+                            <h2 class="hero-heading">
+                                Super Value Deals<br />
+                                <span>On All Products</span>
+                            </h2>
+                            <p class="hero-text">
+                                Save more with coupon & up to 70% off!
+                            </p>
+                            <div class="hero-btn">
+                                <a href="#"
+                                    ><img
+                                        src="images/hero-button.png"
+                                        alt="hero-button"
+                                /></a>
+                            </div>
+                        </div>
+                        <div class="even-col">
+                            <div class="mask-img">
+                                <img
+                                    src="images/hero-woman.jpg"
+                                    alt=""
+                                    class="hero-img"
+                                />
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
+            </section>
 
-              <div class="card">
-                <img src="images/feature-shirt-2.jpg" alt="feature-shirt-2" />
+            <!--- Features & Products --->
 
-                <div class="card-body">
-                  <span class="brand-name">Vans</span>
-                  <h3 class="product-name">Vans Off The Wall Tee</h3>
-                  <div class="rating-stars">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                  </div>
-                  <p class="price-tag">$49.99</p>
-                  <i class="fa-solid fa-cart-plus"></i>
+            <section class="features-and-products">
+                <div class="container">
+                    <!-- Featured-cards -->
+
+                    <div class="featured-cards cols">
+                        <div class="card">
+                            <img
+                                src="images/feature-1.png"
+                                alt="free-shipping"
+                            />
+                            <p class="card-text-1">Free Shopping</p>
+                        </div>
+                        <div class="card">
+                            <img
+                                src="images/feature-2.png"
+                                alt="online-order"
+                            />
+                            <p class="card-text-2">Online Order</p>
+                        </div>
+                        <div class="card">
+                            <img src="images/feature-3.png" alt="save-money" />
+                            <p class="card-text-3">Save Money</p>
+                        </div>
+                        <div class="card">
+                            <img src="images/feature-4.png" alt="promotions" />
+                            <p class="card-text-4">Promotions</p>
+                        </div>
+                        <div class="card">
+                            <img src="images/feature-5.png" alt="happy-sell" />
+                            <p class="card-text-5">Happy Sell</p>
+                        </div>
+                        <div class="card">
+                            <img
+                                src="images/feature-6.png"
+                                alt="24/7-support"
+                            />
+                            <p class="card-text-6">24/7 Support</p>
+                        </div>
+                    </div>
+
+                    <!-- Feature-items -->
+
+                    <div class="featured-and-new-products">
+                        <h2>Featured Products</h2>
+                        <p>Summer Collection New Modern Design</p>
+
+                        <div class="product-items">
+                            <article class="card">
+                                <img
+                                    src="images/feature-shirt-1.jpg"
+                                    alt="feature-shirt-1"
+                                    data-image
+                                />
+
+                                <div class="card-body">
+                                    <span class="brand-name" data-brand
+                                        >Adidas</span
+                                    >
+                                    <h3 class="product-name" data-product-name>
+                                        Adidas Tee
+                                    </h3>
+                                    <div class="rating-stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <p class="price-tag" data-price>$49.99</p>
+                                    <i
+                                        class="fa-solid fa-cart-plus"
+                                        data-cart
+                                    ></i>
+                                </div>
+                            </article>
+
+                            <article class="card">
+                                <img
+                                    src="images/feature-shirt-2.jpg"
+                                    alt="feature-shirt-2"
+                                    data-image
+                                />
+
+                                <div class="card-body">
+                                    <span class="brand-name" data-brand
+                                        >Vans</span
+                                    >
+                                    <h3 class="product-name" data-product-name>
+                                        Vans Off The Wall Tee
+                                    </h3>
+                                    <div class="rating-stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <p class="price-tag" data-price>$49.99</p>
+                                    <i
+                                        class="fa-solid fa-cart-plus"
+                                        data-cart
+                                    ></i>
+                                </div>
+                            </article>
+
+                            <article class="card">
+                                <img
+                                    src="images/feature-shirt-3.jpg"
+                                    alt="feature-shirt-3"
+                                    data-image
+                                />
+
+                                <div class="card-body">
+                                    <span class="brand-name" data-brand
+                                        >Nike</span
+                                    >
+                                    <h3 class="product-name" data-product-name>
+                                        Running Dri-Fit Sport Tee
+                                    </h3>
+                                    <div class="rating-stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <p class="price-tag" data-price>$59.99</p>
+                                    <i
+                                        class="fa-solid fa-cart-plus"
+                                        data-cart
+                                    ></i>
+                                </div>
+                            </article>
+
+                            <article class="card">
+                                <img
+                                    src="images/feature-shirt-4.jpg"
+                                    alt="f1"
+                                    data-image
+                                />
+
+                                <div class="card-body">
+                                    <span class="brand-name" data-brand
+                                        >Browny</span
+                                    >
+                                    <h3 class="product-name" data-product-name>
+                                        Browny Shirt
+                                    </h3>
+                                    <div class="rating-stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <p class="price-tag" data-price>$79.99</p>
+
+                                    <i
+                                        class="fa-solid fa-cart-plus"
+                                        data-cart
+                                    ></i>
+                                </div>
+                            </article>
+
+                            <article class="card">
+                                <img
+                                    src="images/feature-shirt-5.jpg"
+                                    alt="feature-shirt-4"
+                                    data-image
+                                />
+
+                                <div class="card-body">
+                                    <span class="brand-name" data-brand
+                                        >Nike</span
+                                    >
+                                    <h3 class="product-name" data-product-name>
+                                        Nike Air Tee
+                                    </h3>
+                                    <div class="rating-stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <p class="price-tag" data-price>$110.00</p>
+
+                                    <i
+                                        class="fa-solid fa-cart-plus"
+                                        data-cart
+                                    ></i>
+                                </div>
+                            </article>
+
+                            <article class="card">
+                                <img
+                                    src="images/feature-shirt-6.jpg"
+                                    alt="feature-pants-1"
+                                    data-image
+                                />
+
+                                <div class="card-body">
+                                    <span class="brand-name" data-brand
+                                        >Von Dutch</span
+                                    >
+                                    <h3 class="product-name" data-product-name>
+                                        Von Dutch Tee
+                                    </h3>
+                                    <div class="rating-stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <p class="price-tag" data-price>$79.99</p>
+
+                                    <i
+                                        class="fa-solid fa-cart-plus"
+                                        data-cart
+                                    ></i>
+                                </div>
+                            </article>
+
+                            <article class="card">
+                                <img
+                                    src="images/feature-pants-1.jpg"
+                                    alt="feature-shirt-6"
+                                    data-image
+                                />
+
+                                <div class="card-body">
+                                    <span class="brand-name" data-brand
+                                        >Dickies</span
+                                    >
+                                    <h3 class="product-name" data-product-name>
+                                        Dickies Regular Fit Shortpant
+                                    </h3>
+                                    <div class="rating-stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <p class="price-tag" data-price>$99.99</p>
+
+                                    <i
+                                        class="fa-solid fa-cart-plus"
+                                        data-cart
+                                    ></i>
+                                </div>
+                            </article>
+
+                            <article class="card">
+                                <img
+                                    src="images/feature-pants-2.jpg"
+                                    alt="feature-pants-2"
+                                    data-image
+                                />
+
+                                <div class="card-body">
+                                    <span class="brand-name" data-brand
+                                        >Yonex</span
+                                    >
+                                    <h3 class="product-name" data-product-name>
+                                        Yonex Shortpant
+                                    </h3>
+                                    <div class="rating-stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <p class="price-tag" data-price>$89.99</p>
+
+                                    <i
+                                        class="fa-solid fa-cart-plus"
+                                        data-cart
+                                    ></i>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+
+                    <!--- New Arrivals --->
+
+                    <div class="featured-and-new-products">
+                        <h2>New Arrivals</h2>
+                        <p>
+                            Looking for a new summer outfit? Get 25% off our new
+                            collection
+                        </p>
+
+                        <div class="product-items">
+                            <article class="card">
+                                <img
+                                    src="images/new-shirt-1.jpg"
+                                    alt="feature-shirt-1"
+                                    data-image
+                                />
+
+                                <div class="card-body">
+                                    <span class="brand-name" data-brand
+                                        >Vans</span
+                                    >
+                                    <h3 class="product-name" data-product-name>
+                                        Vans Longsleeve
+                                    </h3>
+                                    <div class="rating-stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <p class="price-tag">$159.99</p>
+                                    <span class="discount-price" data-price
+                                        >$119.99</span
+                                    >
+                                    <i
+                                        class="fa-solid fa-cart-plus"
+                                        data-cart
+                                    ></i>
+                                </div>
+                            </article>
+
+                            <article class="card">
+                                <img
+                                    src="images/new-shirt-2.jpg"
+                                    alt="feature-shirt-2"
+                                    data-image
+                                />
+
+                                <div class="card-body">
+                                    <span class="brand-name" data-brand
+                                        >Betty Boop</span
+                                    >
+                                    <h3 class="product-name" data-product-name>
+                                        Betty Boop Rain Jacket
+                                    </h3>
+                                    <div class="rating-stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <p class="price-tag">$199.99</p>
+                                    <span class="discount-price" data-price
+                                        >$149.99</span
+                                    >
+                                    <i
+                                        class="fa-solid fa-cart-plus"
+                                        data-cart
+                                    ></i>
+                                </div>
+                            </article>
+
+                            <article class="card">
+                                <img
+                                    src="images/new-shirt-3.jpg"
+                                    alt="feature-shirt-3"
+                                    data-image
+                                />
+
+                                <div class="card-body">
+                                    <span class="brand-name" data-brand
+                                        >DC</span
+                                    >
+                                    <h3 class="product-name" data-product-name>
+                                        DC Tee
+                                    </h3>
+                                    <div class="rating-stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <p class="price-tag">$99.99</p>
+                                    <span class="discount-price" data-price
+                                        >$74.99</span
+                                    >
+                                    <i
+                                        class="fa-solid fa-cart-plus"
+                                        data-cart
+                                    ></i>
+                                </div>
+                            </article>
+
+                            <article class="card">
+                                <img
+                                    src="images/new-shirt-4.jpg"
+                                    alt="f1"
+                                    data-image
+                                />
+
+                                <div class="card-body">
+                                    <span class="brand-name" data-brand
+                                        >Play Boy</span
+                                    >
+                                    <h3 class="product-name" data-product-name>
+                                        Play Boy Cotton Longsleeve
+                                    </h3>
+                                    <div class="rating-stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <p class="price-tag">$159.99</p>
+                                    <span class="discount-price" data-price
+                                        >$119.99</span
+                                    >
+
+                                    <i
+                                        class="fa-solid fa-cart-plus"
+                                        data-cart
+                                    ></i>
+                                </div>
+                            </article>
+
+                            <article class="card">
+                                <img
+                                    src="images/new-shirt-5.jpg"
+                                    alt="feature-shirt-4"
+                                    data-image
+                                />
+
+                                <div class="card-body">
+                                    <span class="brand-name" data-brand
+                                        >Popeye</span
+                                    >
+                                    <h3 class="product-name" data-product-name>
+                                        Popeye Offical Tee
+                                    </h3>
+                                    <div class="rating-stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <p class="price-tag">$119.99</p>
+                                    <span class="discount-price" data-price
+                                        >$89.99</span
+                                    >
+
+                                    <i
+                                        class="fa-solid fa-cart-plus"
+                                        data-cart
+                                    ></i>
+                                </div>
+                            </article>
+
+                            <article class="card">
+                                <img
+                                    src="images/new-shirt-6.jpg"
+                                    alt="feature-pants-1"
+                                    data-image
+                                />
+
+                                <div class="card-body">
+                                    <span class="brand-name" data-brand
+                                        >Uniqlo</span
+                                    >
+                                    <h3 class="product-name" data-product-name>
+                                        Uniqlo Heavyweight Longsleeve
+                                    </h3>
+                                    <div class="rating-stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <p class="price-tag">$99.99</p>
+                                    <span class="discount-price" data-price
+                                        >$74.99</span
+                                    >
+
+                                    <i
+                                        class="fa-solid fa-cart-plus"
+                                        data-cart
+                                    ></i>
+                                </div>
+                            </article>
+
+                            <article class="card">
+                                <img
+                                    src="images/new-pants-1.jpg"
+                                    alt="feature-shirt-6"
+                                    data-image
+                                />
+
+                                <div class="card-body">
+                                    <span class="brand-name" data-brand
+                                        >Dickies</span
+                                    >
+                                    <h3 class="product-name" data-product-name>
+                                        Dickies Chino Pant
+                                    </h3>
+                                    <div class="rating-stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <p class="price-tag">$199.99</p>
+                                    <span class="discount-price" data-price
+                                        >$149.99</span
+                                    >
+
+                                    <i
+                                        class="fa-solid fa-cart-plus"
+                                        data-cart
+                                    ></i>
+                                </div>
+                            </article>
+
+                            <article class="card">
+                                <img
+                                    src="images/new-pants-2.jpg"
+                                    alt="feature-pants-2"
+                                    data-image
+                                />
+
+                                <div class="card-body">
+                                    <span class="brand-name" data-brand
+                                        >Dickies</span
+                                    >
+                                    <h3 class="product-name" data-product-name>
+                                        Dickies Chino Pant
+                                    </h3>
+                                    <div class="rating-stars">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <p class="price-tag">$199.99</p>
+                                    <span class="discount-price" data-price
+                                        >$149.99</span
+                                    >
+
+                                    <i
+                                        class="fa-solid fa-cart-plus"
+                                        data-cart
+                                    ></i>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
                 </div>
-              </div>
+            </section>
 
-              <div class="card">
-                <img src="images/feature-shirt-3.jpg" alt="feature-shirt-3" />
+            <!--- Services --->
 
-                <div class="card-body">
-                  <span class="brand-name">Nike</span>
-                  <h3 class="product-name">Running Dri-Fit Sport Tee</h3>
-                  <div class="rating-stars">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                  </div>
-                  <p class="price-tag">$59.99</p>
-                  <i class="fa-solid fa-cart-plus"></i>
+            <section class="services">
+                <div class="container">
+                    <p>Repair Services</p>
+                    <h2>
+                        Up to <span>70% Off</span>- All t-Shirts & Accessories
+                    </h2>
+                    <button class="services-btn">Explore More</button>
                 </div>
-              </div>
+            </section>
 
-              <div class="card">
-                <img src="images/feature-shirt-4.jpg" alt="f1" />
+            <!--- Banners --->
 
-                <div class="card-body">
-                  <span class="brand-name">Browny</span>
-                  <h3 class="product-name">Browny Shirt</h3>
-                  <div class="rating-stars">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                  </div>
-                  <p class="price-tag">$79.99</p>
-
-                  <i class="fa-solid fa-cart-plus"></i>
+            <section class="banners">
+                <div class="container">
+                    <div class="banner-boxes">
+                        <div class="banner-box-1">
+                            <div class="banner-text">
+                                <p>crazy deals</p>
+                                <h3>Buy 1 get 1 free</h3>
+                                <p>The best classic dress is on sale at KIRA</p>
+                                <button class="banner-btn">Learn More</button>
+                            </div>
+                            <img
+                                src="images/banner-1.jpg"
+                                alt="buy-1 get 1 free"
+                            />
+                        </div>
+                        <div class="banner-box-2">
+                            <div class="banner-text">
+                                <p>Spring/summer</p>
+                                <h3>Upcomming season</h3>
+                                <p>The best classic dress is on sale at KIRA</p>
+                                <button class="banner-btn-trans">
+                                    Collection
+                                </button>
+                            </div>
+                            <img
+                                src="images/banner-2.jpg"
+                                alt="upcomming season"
+                            />
+                        </div>
+                        <div class="banner-box-3">
+                            <div class="banner-text">
+                                <h3>Seasonal Sale</h3>
+                                <p>Winter Collection -50% off</p>
+                            </div>
+                            <img
+                                src="images/banner-3.jpg"
+                                alt="seasonal sale"
+                            />
+                        </div>
+                        <div class="banner-box-4">
+                            <div class="banner-text">
+                                <h3>New Footwear Collection</h3>
+                                <p>Spring/Summer 2022</p>
+                            </div>
+                            <img
+                                src="images/banner-4.jpg"
+                                alt="new footwear collection"
+                            />
+                        </div>
+                        <div class="banner-box-5">
+                            <div class="banner-text">
+                                <h3>T-Shirts</h3>
+                                <p>New Trendy Prints</p>
+                            </div>
+                            <img src="images/banner-5.jpg" alt="t-shirts" />
+                        </div>
+                    </div>
                 </div>
-              </div>
+            </section>
 
-              <div class="card">
-                <img src="images/feature-shirt-5.jpg" alt="feature-shirt-4" />
+            <!-- About -->
+            <section class="about">
+                <div class="container">
+                    <div class="cols">
+                        <div class="even-col">
+                            <div class="carousel">
+                                <div
+                                    class="carousel-item visible"
+                                    data-carousel-item
+                                >
+                                    <img
+                                        src="images/about-1.jpg"
+                                        alt="about-image"
+                                    />
+                                </div>
+                                <div class="carousel-item" data-carousel-item>
+                                    <img
+                                        src="images/about-2.jpg"
+                                        alt="about-image"
+                                    />
+                                </div>
+                                <div class="carousel-item" data-carousel-item>
+                                    <img
+                                        src="images/about-3.jpg"
+                                        alt="about-image"
+                                    />
+                                </div>
 
-                <div class="card-body">
-                  <span class="brand-name">Nike</span>
-                  <h3 class="product-name">Nike Air Tee</h3>
-                  <div class="rating-stars">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                  </div>
-                  <p class="price-tag">$110.00</p>
-
-                  <i class="fa-solid fa-cart-plus"></i>
-                </div>
-              </div>
-              <div class="card">
-                <img src="images/feature-shirt-6.jpg" alt="feature-pants-1" />
-
-                <div class="card-body">
-                  <span class="brand-name">Von Dutch</span>
-                  <h3 class="product-name">Von Dutch Tee</h3>
-                  <div class="rating-stars">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                  </div>
-                  <p class="price-tag">$79.99</p>
-
-                  <i class="fa-solid fa-cart-plus"></i>
-                </div>
-              </div>
-
-              <div class="card">
-                <img src="images/feature-pants-1.jpg" alt="feature-shirt-6" />
-
-                <div class="card-body">
-                  <span class="brand-name">Dickies</span>
-                  <h3 class="product-name">Dickies Regular Fit Shortpant</h3>
-                  <div class="rating-stars">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                  </div>
-                  <p class="price-tag">$99.99</p>
-
-                  <i class="fa-solid fa-cart-plus"></i>
-                </div>
-              </div>
-
-              <div class="card">
-                <img src="images/feature-pants-2.jpg" alt="feature-pants-2" />
-
-                <div class="card-body">
-                  <span class="brand-name">Yonex</span>
-                  <h3 class="product-name">Yonex Shortpant</h3>
-                  <div class="rating-stars">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                  </div>
-                  <p class="price-tag">$89.99</p>
-
-                  <i class="fa-solid fa-cart-plus"></i>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!--- New Arrivals --->
-
-          <div class="featured-and-new-products">
-            <h2>New Arrivals</h2>
-            <p>
-              Looking for a new summer outfit? Get 25% off our new collection
-            </p>
-
-            <div class="product-items">
-              <div class="card">
-                <img src="images/new-shirt-1.jpg" alt="feature-shirt-1" />
-
-                <div class="card-body">
-                  <span class="brand-name">Vans</span>
-                  <h3 class="product-name">Vans Longsleeve</h3>
-                  <div class="rating-stars">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                  </div>
-                  <p class="price-tag">$159.99</p>
-                  <span class="discount-price">$119.99</span>
-                  <i class="fa-solid fa-cart-plus"></i>
-                </div>
-              </div>
-
-              <div class="card">
-                <img src="images/new-shirt-2.jpg" alt="feature-shirt-2" />
-
-                <div class="card-body">
-                  <span class="brand-name">Betty Boop</span>
-                  <h3 class="product-name">Betty Boop Rain Jacket</h3>
-                  <div class="rating-stars">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                  </div>
-                  <p class="price-tag">$199.99</p>
-                  <span class="discount-price">$149.99</span>
-                  <i class="fa-solid fa-cart-plus"></i>
-                </div>
-              </div>
-
-              <div class="card">
-                <img src="images/new-shirt-3.jpg" alt="feature-shirt-3" />
-
-                <div class="card-body">
-                  <span class="brand-name">DC</span>
-                  <h3 class="product-name">DC Tee</h3>
-                  <div class="rating-stars">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                  </div>
-                  <p class="price-tag">$99.99</p>
-                  <span class="discount-price">$74.99</span>
-                  <i class="fa-solid fa-cart-plus"></i>
-                </div>
-              </div>
-
-              <div class="card">
-                <img src="images/new-shirt-4.jpg" alt="f1" />
-
-                <div class="card-body">
-                  <span class="brand-name">Play Boy</span>
-                  <h3 class="product-name">Play Boy Cotton Longsleeve</h3>
-                  <div class="rating-stars">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                  </div>
-                  <p class="price-tag">$159.99</p>
-                  <span class="discount-price">$119.99</span>
-
-                  <i class="fa-solid fa-cart-plus"></i>
-                </div>
-              </div>
-
-              <div class="card">
-                <img src="images/new-shirt-5.jpg" alt="feature-shirt-4" />
-
-                <div class="card-body">
-                  <span class="brand-name">Popeye</span>
-                  <h3 class="product-name">Popeye Offical Tee</h3>
-                  <div class="rating-stars">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                  </div>
-                  <p class="price-tag">$119.99</p>
-                  <span class="discount-price">$89.99</span>
-
-                  <i class="fa-solid fa-cart-plus"></i>
-                </div>
-              </div>
-              <div class="card">
-                <img src="images/new-shirt-6.jpg" alt="feature-pants-1" />
-
-                <div class="card-body">
-                  <span class="brand-name">Uniqlo</span>
-                  <h3 class="product-name">Uniqlo Heavyweight Longsleeve</h3>
-                  <div class="rating-stars">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                  </div>
-                  <p class="price-tag">$99.99</p>
-                  <span class="discount-price">$74.99</span>
-
-                  <i class="fa-solid fa-cart-plus"></i>
-                </div>
-              </div>
-
-              <div class="card">
-                <img src="images/new-pants-1.jpg" alt="feature-shirt-6" />
-
-                <div class="card-body">
-                  <span class="brand-name">Dickies</span>
-                  <h3 class="product-name">Dickies Chino Pant</h3>
-                  <div class="rating-stars">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                  </div>
-                  <p class="price-tag">$199.99</p>
-                  <span class="discount-price">$149.99</span>
-
-                  <i class="fa-solid fa-cart-plus"></i>
-                </div>
-              </div>
-
-              <div class="card">
-                <img src="images/new-pants-2.jpg" alt="feature-pants-2" />
-
-                <div class="card-body">
-                  <span class="brand-name">Dickies</span>
-                  <h3 class="product-name">Dickies Chino Pant</h3>
-                  <div class="rating-stars">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                  </div>
-                  <p class="price-tag">$199.99</p>
-                  <span class="discount-price">$149.99</span>
-
-                  <i class="fa-solid fa-cart-plus"></i>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!--- Services --->
-
-      <section class="services">
-        <div class="container">
-          <p>Repair Services</p>
-          <h2>Up to <span>70% Off</span>- All t-Shirts & Accessories</h2>
-          <button class="services-btn">Explore More</button>
-        </div>
-      </section>
-
-      <!--- Banners --->
-
-      <section class="banners">
-        <div class="container">
-          <div class="banner-boxes">
-            <div class="banner-box-1">
-              <div class="banner-text">
-                <p>crazy deals</p>
-                <h3>Buy 1 get 1 free</h3>
-                <p>The best classic dress is on sale at KIRA</p>
-                <button class="banner-btn">Learn More</button>
-              </div>
-              <img src="images/banner-1.jpg" alt="buy-1 get 1 free" />
-            </div>
-            <div class="banner-box-2">
-              <div class="banner-text">
-                <p>Spring/summer</p>
-                <h3>Upcomming season</h3>
-                <p>The best classic dress is on sale at KIRA</p>
-                <button class="banner-btn-trans">Collection</button>
-              </div>
-              <img src="images/banner-2.jpg" alt="upcomming season" />
-            </div>
-            <div class="banner-box-3">
-              <div class="banner-text">
-                <h3>Seasonal Sale</h3>
-                <p>Winter Collection -50% off</p>
-              </div>
-              <img src="images/banner-3.jpg" alt="seasonal sale" />
-            </div>
-            <div class="banner-box-4">
-              <div class="banner-text">
-                <h3>New Footwear Collection</h3>
-                <p>Spring/Summer 2022</p>
-              </div>
-              <img src="images/banner-4.jpg" alt="new footwear collection" />
-            </div>
-            <div class="banner-box-5">
-              <div class="banner-text">
-                <h3>T-Shirts</h3>
-                <p>New Trendy Prints</p>
-              </div>
-              <img src="images/banner-5.jpg" alt="t-shirts" />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- About -->
-      <section class="about">
-        <div class="container">
-          <div class="cols">
-            <div class="even-col">
-              <div class="carousel">
-                <div class="carousel-item visible" data-carousel-item>
-                  <img src="images/about-1.jpg" alt="about-image" />
-                </div>
-                <div class="carousel-item" data-carousel-item>
-                  <img src="images/about-2.jpg" alt="about-image" />
-                </div>
-                <div class="carousel-item" data-carousel-item>
-                  <img src="images/about-3.jpg" alt="about-image" />
-                </div>
-
-                <div class="carousel-btn-group">
-                  <i class="fa-solid fa-arrow-left" data-carousel-prev></i>
-                  <i class="fa-solid fa-arrow-right" data-carousel-next></i>
-                </div>
-                <ul class="carousel-nav" data-carousel-nav>
-                  <!-- <span
+                                <div class="carousel-btn-group">
+                                    <i
+                                        class="fa-solid fa-arrow-left"
+                                        data-carousel-prev
+                                    ></i>
+                                    <i
+                                        class="fa-solid fa-arrow-right"
+                                        data-carousel-next
+                                    ></i>
+                                </div>
+                                <ul class="carousel-nav" data-carousel-nav>
+                                    <!-- <span
                     class="carousel-nav-item selected"
                     data-carousel-nav-item
                   ></span>
                   <span class="carousel-nav-item" data-carousel-nav-item></span>
                   <span class="carousel-nav-item" data-carousel-nav-item></span> -->
-                </ul>
-              </div>
-            </div>
-            <div class="even-col">
-              <h2 class="about-heading">Who Are We...?</h2>
-              <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos
-                dicta repellendus aperiam, suscipit atque nam reprehenderit
-                officia inventore? Libero in harum fuga minima! Ipsam eaque
-                itaque quam magni. Repudiandae, eligendi. Lorem ipsum, dolor sit
-                amet consectetur adipisicing elit. Eos dicta repellendus
-                aperiam, suscipit atque nam reprehenderit officia inventore?
-                Libero in harum fuga minima! Ipsam eaque itaque quam magni.
-                Repudiandae, eligendi. Lorem ipsum, dolor sit amet consectetur
-                adipisicing elit. Eos dicta repellendus aperiam, suscipit atque
-                nam reprehenderit officia inventore? Libero in harum fuga
-                minima! Ipsam eaque itaque quam magni. Repudiandae, eligendi.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="even-col">
+                            <h2 class="about-heading">Who Are We...?</h2>
 
-      <dialog></dialog>
-    </main>
+                            <p class="about-text">
+                                <span>KIRA</span> was created to bring you the
+                                latest in Streetwear trends from Top Streetwear
+                                Brands Like Billionaire Boys Club, 10 Deep, Pink
+                                Dolphin, Kappa, Adidas, and more. KIRA remains
+                                the largest Store for Urban Clothing Since it
+                                opened its doors in 2000. This includes KIRA
+                                Marketplace which bring you upcoming brands and
+                                styles you can't find anywhere else and PLNDR
+                                The largest Discount for Streetwear. From the
+                                latest Shoes, Joggers, Outerwear, T-shirts KIRA
+                                has what your looking for in Women's and Men's
+                                Fashion.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-    <script src="script-kira.js"></script>
-  </body>
+            <!--- Newsletter --->
+
+            <section class="newsletter">
+                <div class="container">
+                    <div class="cols">
+                        <div class="col">
+                            <h2 class="newsletter-heading">
+                                Sign Up For Newsletters
+                            </h2>
+                            <p class="newsletter-texting">
+                                Gets E-mail updates about our latest shop and
+                                special offers.
+                            </p>
+                        </div>
+                        <div class="col">
+                            <div class="input-group">
+                                <input
+                                    type="email"
+                                    placeholder="Your email address"
+                                />
+                                <button class="submit-btn">Sign up</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!--- Contact --->
+
+            <section class="contact">
+                <div class="container">
+                    <div class="cols">
+                        <div class="col">
+                            <small>get in touch</small>
+                            <h2 class="contact-heading">
+                                Visit one of agency locations or contact us
+                                today
+                            </h2>
+                            <h4 class="contact-sub-heading">Head office</h4>
+                            <ul class="contact-info">
+                                <div class="contact-info-col">
+                                    <i class="fa-solid fa-map"></i>
+                                    <span
+                                        >199 Lafayette St, New York,NY
+                                        10012</span
+                                    >
+                                </div>
+                                <div class="contact-info-col">
+                                    <i class="fa-solid fa-envelope-open"></i>
+                                    <span>kira123@gmail.com</span>
+                                </div>
+                                <div class="contact-info-col">
+                                    <i class="fa-solid fa-phone"></i>
+                                    <span>1-123-456-789</span>
+                                </div>
+                                <div class="contact-info-col">
+                                    <i class="fa-solid fa-clock"></i>
+                                    <span
+                                        >Monday to Saturday 9:00AM to
+                                        6:00PM</span
+                                    >
+                                </div>
+                            </ul>
+                        </div>
+                        <div class="col">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3023.8523939933675!2d-73.99995918456713!3d40.72126577933083!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259891f2f8e45%3A0x43884f18552b354f!2s199%20Lafayette%20St%2C%20New%20York%2C%20NY%2010012%2C%20USA!5e0!3m2!1sen!2smm!4v1657913330640!5m2!1sen!2smm"
+                                width="600"
+                                height="450"
+                                style="border: 0"
+                                allowfullscreen=""
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"
+                            ></iframe>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <!----- Footer ----->
+        <footer>
+            <div class="container">
+                <div class="cols">
+                    <div class="footer-col">
+                        <h4 class="footer-heading">Follow Us</h4>
+                        <ul class="social-links">
+                            <li>
+                                <a href="#"
+                                    ><i class="fa-brands fa-facebook-square"></i
+                                ></a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                    ><i
+                                        class="fa-brands fa-instagram-square"
+                                    ></i
+                                ></a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                    ><i
+                                        class="fa-brands fa-pinterest-square"
+                                    ></i
+                                ></a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                    ><i class="fa-brands fa-twitter-square"></i
+                                ></a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                    ><i class="fa-brands fa-youtube-square"></i
+                                ></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4 class="footer-heading">About</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Delivery information</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms & Conditions</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4 class="footer-heading">My Account</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">Sign In</a></li>
+                            <li><a href="#">View Cort</a></li>
+                            <li><a href="#">My Wishlist</a></li>
+                            <li><a href="#">Track My Order</a></li>
+                            <li><a href="#">Help</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4 class="footer-heading">Install App</h4>
+                        <h5 class="footer-sub-heading">
+                            From App Store or Google Play
+                        </h5>
+                        <div class="store-img">
+                            <a href="#"
+                                ><img src="images/app.jpg" alt="apple-store"
+                            /></a>
+                            <a href="#"
+                                ><img src="images/play.jpg" alt="google-play"
+                            /></a>
+                        </div>
+                        <h5 class="footer-sub-heading">
+                            Secure Payment Gateways
+                        </h5>
+                        <div class="payment-img">
+                            <img src="images/pay.png" alt="payment" />
+                        </div>
+                    </div>
+                </div>
+                <p class="copy-rights">&copy;KIRA-All Right Reserved|2022</p>
+            </div>
+
+            <form action="" class="floating-form" data-floating-form>
+                <h2 class="floating-form-heading">Chat with us!</h2>
+                <p class="floating-form-text">
+                    👋 Hello! Let us know if you have a specific question,or
+                    give an idea of what you're looking for,We're happy to make
+                    recommendations.
+                </p>
+                <div class="textarea-group">
+                    <textarea
+                        name=""
+                        id=""
+                        placeholder="Leave your message here..."
+                    ></textarea>
+                    <i class="fa-solid fa-paper-plane"></i>
+                </div>
+
+                <div class="track-order">
+                    <h3>Instant answers</h3>
+                    <div class="track-order-group">
+                        <p>Track my order</p>
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </div>
+                </div>
+            </form>
+
+            <div class="floating-message" onclick="displayFloatingForm()">
+                <i class="fa-solid fa-message" data-floating-message></i>
+            </div>
+        </footer>
+
+        <script src="script-kira.js"></script>
+    </body>
 </html>
