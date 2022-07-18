@@ -1166,6 +1166,7 @@ footer .footer-col {
 }
 
 .textarea-group textarea {
+    min-width: 243px;
     min-height: 100px;
     display: block;
     background-color: transparent;
