@@ -137,6 +137,7 @@ wishListBoxCloseBtn.addEventListener('click', () => {
 });
 
 const cartBtns = document.querySelectorAll('[data-cart]');
+const emptyCartText = document.querySelector('[data-empty-cart]');
 
 cartBtns.forEach(function (btn, i) {
     btn.addEventListener('click', function (e) {
@@ -145,6 +146,23 @@ cartBtns.forEach(function (btn, i) {
         const product = productDetails.products[i];
         const price = productDetails.prices[i];
 
+        if (wishListContainerEl.firstElementChild === emptyCartText) {
+            wishListContainerEl.removeChild(emptyCartText);
+            wishListContainerEl.innerHTML = `<ul class="wishlist-header cols">
+                        <div class="col">
+                            <h3>Image</h3>
+                        </div>
+                        <div class="col">
+                            <h3>Brand</h3>
+                        </div>
+                        <div class="col">
+                            <h3>Name</h3>
+                        </div>
+                        <div class="col">
+                            <h3>Price</h3>
+                        </div>
+                    </ul>`;
+        }
         wishListContainerEl.innerHTML += `<ul class="cols wishlist-item-list">
                         <div class="col">
                             <img src="${img}"" />
@@ -160,7 +178,7 @@ cartBtns.forEach(function (btn, i) {
 
                             <i class="fa-solid fa-xmark remove-btn"></i>
                         </div>
-                    </ul>`;
+                    </ul>`; //adding items into wishlistcontainer
 
         const wishListItemDelBtns = document.querySelectorAll('.remove-btn');
         const wishListItems = document.querySelectorAll('.wishlist-item-list');
@@ -169,7 +187,7 @@ cartBtns.forEach(function (btn, i) {
             btn.addEventListener('click', function (e) {
                 wishListContainerEl.removeChild(wishListItems[i]);
             });
-        });
+        }); //delete item using red cross btn
     });
 });
 

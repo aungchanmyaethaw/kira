@@ -391,6 +391,11 @@ span[class^='tool-tip-']::before {
     cursor: pointer;
 }
 
+.empty-cart-text {
+    margin-top: 2em;
+    font-size: 2rem;
+}
+
 /* ---Hero--- */
 
 .hero {
