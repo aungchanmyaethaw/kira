@@ -148,7 +148,7 @@ cartBtns.forEach(function (btn, i) {
 
         if (wishListContainerEl.firstElementChild === emptyCartText) {
             wishListContainerEl.removeChild(emptyCartText);
-            wishListContainerEl.innerHTML = `<ul class="wishlist-header cols">
+            wishListContainerEl.innerHTML = `<ul class="wishlist-header cols" data-wishlist-header>
                         <div class="col">
                             <h3>Image</h3>
                         </div>
