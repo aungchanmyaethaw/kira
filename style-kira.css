@@ -254,11 +254,16 @@ span[class^='tool-tip-']::before {
     .right-side-menu {
         column-gap: 1.5em;
     }
+
+    span[class^='tool-tip-'] {
+        display: none;
+    }
 }
 
 @media screen and (max-width: 768px) {
     header > .fa-solid {
         display: block;
+        font-size: 1.25rem;
     }
 
     header > .fa-solid:hover {
@@ -270,20 +275,22 @@ span[class^='tool-tip-']::before {
     }
 
     .nav-sm-bar {
+        --tt: -100%;
         display: flex;
         width: 100%;
         justify-content: center;
         text-align: center;
         position: fixed;
         left: 0;
-        top: -100%;
+        top: 7vh;
         background-color: var(--color-neutral);
-        transition: top 0.5s ease-in-out;
+        transform: translateY(var(--tt));
+        transition: transform 0.25s ease-in-out;
         z-index: 2;
     }
 
     .nav-sm-bar-toggler {
-        top: 7vh;
+        --tt: 0%;
     }
 
     .nav-items-for-sm li {
@@ -292,6 +299,10 @@ span[class^='tool-tip-']::before {
 }
 
 @media screen and (max-width: 640px) {
+    .nav-sm-bar {
+        top: 10vh;
+    }
+
     .nav-items-for-sm li a {
         font-size: 0.875rem;
     }
@@ -343,6 +354,7 @@ span[class^='tool-tip-']::before {
     position: absolute;
     top: 32px;
     right: 32px;
+    font-size: 1.25rem;
     border-radius: 50%;
     border: 2px solid var(--color-dark);
     cursor: pointer;
@@ -1297,6 +1309,10 @@ button[class^='banner-btn']:active::after {
 
     .newsletter .cols {
         align-items: flex-start;
+    }
+
+    .input-group input[type='email'] {
+        min-width: 100%;
     }
 }
 

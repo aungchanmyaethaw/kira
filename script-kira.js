@@ -17,12 +17,6 @@ navBarBtn.addEventListener('click', function (e) {
     navItems.classList.toggle('navItems-toggler'); // Toggle Nav Links
 });
 
-navBarSmBtn.addEventListener('click', function (e) {
-    const elClsList = e.target.classList;
-
-    navSmItems.classList.toggle('nav-sm-bar-toggler');
-});
-
 //=== Profile Modal
 
 const profile = document.querySelector('[data-profile]');
@@ -66,6 +60,10 @@ const toolTips = document.querySelectorAll('[data-toolTip]'); //tooltips
 
 search.addEventListener('click', function () {
     toolTips.forEach((toolTip) => toolTip.classList.toggle('tool-tip-toggler'));
+
+    if (navSmItems.classList.contains('nav-sm-bar-toggler')) {
+        navSmItems.classList.remove('nav-sm-bar-toggler');
+    }
     searchBox.classList.toggle('search-toggler');
 }); // Removing Tooltips and show searchBox
 
@@ -197,6 +195,18 @@ cartBtns.forEach(function (btn, i) {
             });
         }); //delete item using red cross btn
     });
+});
+
+//=== Small-Device navbar===//
+
+navBarSmBtn.addEventListener('click', function (e) {
+    const elClsList = e.target.classList;
+
+    if (searchBox.classList.contains('search-toggler')) {
+        searchBox.classList.remove('search-toggler');
+    }
+
+    navSmItems.classList.toggle('nav-sm-bar-toggler');
 });
 
 //=== About Carousel ===//
