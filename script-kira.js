@@ -1,7 +1,9 @@
 //=== Left-side-nav-bar display
 
 const navBarBtn = document.querySelector('[data-navBar-btn]');
+const navBarSmBtn = document.querySelector('[data-sm-navBar-btn]');
 const navItems = document.querySelector('[data-nav-items]'); //Navlinks
+const navSmItems = document.querySelector('[data-nav-sm-items]');
 navBarBtn.addEventListener('click', function (e) {
     const elClsList = e.target.classList;
     if (elClsList.contains('fa-bars')) {
@@ -13,6 +15,12 @@ navBarBtn.addEventListener('click', function (e) {
     } // Toggle icons
 
     navItems.classList.toggle('navItems-toggler'); // Toggle Nav Links
+});
+
+navBarSmBtn.addEventListener('click', function (e) {
+    const elClsList = e.target.classList;
+
+    navSmItems.classList.toggle('nav-sm-bar-toggler');
 });
 
 //=== Profile Modal
