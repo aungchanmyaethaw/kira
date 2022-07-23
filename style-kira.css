@@ -275,7 +275,7 @@ span[class^='tool-tip-']::before {
     }
 
     .nav-sm-bar {
-        --tt: -100%;
+        --tt: -90vh;
         display: flex;
         width: 100%;
         justify-content: center;
@@ -290,7 +290,7 @@ span[class^='tool-tip-']::before {
     }
 
     .nav-sm-bar-toggler {
-        --tt: 0%;
+        --tt: 0vh;
     }
 
     .nav-items-for-sm li {
@@ -299,10 +299,6 @@ span[class^='tool-tip-']::before {
 }
 
 @media screen and (max-width: 640px) {
-    .nav-sm-bar {
-        top: 10vh;
-    }
-
     .nav-items-for-sm li a {
         font-size: 0.875rem;
     }
