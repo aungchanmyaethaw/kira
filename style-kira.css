@@ -99,6 +99,7 @@ ul {
 
 header {
     width: 100%;
+    min-height: 5vh;
     padding: 1.5em 2em;
     display: flex;
     align-items: center;
@@ -273,16 +274,16 @@ span[class^='tool-tip-']::before {
         width: 100%;
         justify-content: center;
         text-align: center;
-        position: absolute;
+        position: fixed;
         left: 0;
-        top: -400px;
+        top: -100%;
         background-color: var(--color-neutral);
-        transition: top 0.5s ease-in;
+        transition: top 0.5s ease-in-out;
         z-index: 2;
     }
 
     .nav-sm-bar-toggler {
-        top: 76px;
+        top: 7vh;
     }
 
     .nav-items-for-sm li {
