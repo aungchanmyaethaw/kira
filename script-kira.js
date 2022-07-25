@@ -6,13 +6,8 @@ const navItems = document.querySelector('[data-nav-items]'); //Navlinks
 const navSmItems = document.querySelector('[data-nav-sm-items]');
 navBarBtn.addEventListener('click', function (e) {
     const elClsList = e.target.classList;
-    if (elClsList.contains('fa-bars')) {
-        elClsList.remove('fa-bars');
-        elClsList.add('fa-xmark');
-    } else {
-        elClsList.remove('fa-xmark');
-        elClsList.add('fa-bars');
-    } // Toggle icons
+
+    toggleNavBtnIcon(elClsList);
 
     navItems.classList.toggle('navItems-toggler'); // Toggle Nav Links
 });
@@ -60,13 +55,16 @@ const toolTips = document.querySelectorAll('[data-toolTip]'); //tooltips
 
 search.addEventListener('click', function () {
     toolTips.forEach((toolTip) => toolTip.classList.toggle('tool-tip-toggler'));
-
-    if (navSmItems.classList.contains('nav-sm-bar-toggler')) {
-        navSmItems.classList.remove('nav-sm-bar-toggler');
-    }
     searchBox.classList.toggle('search-toggler');
-}); // Removing Tooltips and show searchBox
 
+    if (searchBox.classList.contains('search-toggler')) {
+        navSmItems.classList.remove('nav-sm-bar-toggler');
+        if (navBarSmBtn.classList.contains('fa-xmark')) {
+            navBarSmBtn.classList.remove('fa-xmark');
+            navBarSmBtn.classList.add('fa-bars');
+        }
+    }
+}); // Removing Tooltips and show searchBox
 const count = productDetails.brands.length;
 
 for (let i = 0; i < count; i++) {
@@ -74,10 +72,13 @@ for (let i = 0; i < count; i++) {
     const brand = productDetails.brands[i];
     const product = productDetails.products[i];
 
-    searchListEl.innerHTML += `<a href="#" class="search-item" data-list>
+    searchListEl.innerHTML += `<a href="#product" class="search-item" data-list>
                         <div class="cols">
                             <div class="col">
-                                <img src="${img}" / >
+                            <div class="search-item-img">
+                            <img src="${img}" / >
+                            </div>
+                                
                             </div>
                             <div class="col">
                                 <span class="brand-name" data-brand
@@ -131,7 +132,7 @@ const wishListContainerEl = document.querySelector(
     '[data-wishlist-sub-container]'
 );
 const wishListBoxCloseBtn = document.querySelector(
-    '[data-wislist-container-close-btn]'
+    '[data-wishlist-container-close-btn]'
 );
 
 wishList.addEventListener('click', () => {
@@ -154,36 +155,29 @@ cartBtns.forEach(function (btn, i) {
 
         if (wishListContainerEl.firstElementChild === emptyCartText) {
             wishListContainerEl.removeChild(emptyCartText);
-            wishListContainerEl.innerHTML = `<ul class="wishlist-header cols" data-wishlist-header>
-                        <div class="col">
-                            <h3>Image</h3>
-                        </div>
-                        <div class="col">
-                            <h3>Brand</h3>
-                        </div>
-                        <div class="col">
-                            <h3>Name</h3>
-                        </div>
-                        <div class="col">
-                            <h3>Price</h3>
-                        </div>
-                    </ul>`;
         }
-        wishListContainerEl.innerHTML += `<ul class="cols wishlist-item-list">
-                        <div class="col">
-                            <img src="${img}"" />
-                        </div>
-                        <div class="col">
-                            <p>${brand}</p>
-                        </div>
-                        <div class="col">
-                            <p>${product}</p>
-                        </div>
-                        <div class="col price-col">
-                            <p>${price}</p>
 
-                            <i class="fa-solid fa-xmark remove-btn"></i>
-                        </div>
+        wishListContainerEl.innerHTML += `<ul class="wishlist-grid-row wishlist-item-list">
+                        <li class="wishlist-item-col-1">
+                            <div class="wishlist-item-img">
+                                <img src="${img}" alt="" />
+                            </div>
+                        </li>
+                        <li class="wishlist-item-col-2">
+                            <p class="wishlist-item-text">${brand}</p>
+                        </li>
+                        <li class="wishlist-item-col-3">
+                            <p class="wishlist-item-text">${product}</p>
+                        </li>
+                        <li class="wishlist-item-col-4">
+                            <p class="wishlist-item-text">${price}</p>
+                            <div class="remove-btn remove-sm-btn">
+                                <i
+                                    class="fa-solid fa-trash-can"
+                                    data-remove-btn
+                                ></i>
+                            </div>
+                        </li>
                     </ul>`; //adding items into wishlistcontainer
 
         const wishListItemDelBtns = document.querySelectorAll('.remove-btn');
@@ -202,12 +196,24 @@ cartBtns.forEach(function (btn, i) {
 navBarSmBtn.addEventListener('click', function (e) {
     const elClsList = e.target.classList;
 
-    if (searchBox.classList.contains('search-toggler')) {
-        searchBox.classList.remove('search-toggler');
-    }
+    toggleNavBtnIcon(elClsList);
 
     navSmItems.classList.toggle('nav-sm-bar-toggler');
+    if (navSmItems.classList.contains('nav-sm-bar-toggler')) {
+        searchBox.classList.remove('search-toggler');
+    }
+    searchBox.classList.toggle('search-sm-toggler');
 });
+
+function toggleNavBtnIcon(elClsList) {
+    if (elClsList.contains('fa-bars')) {
+        elClsList.remove('fa-bars');
+        elClsList.add('fa-xmark');
+    } else {
+        elClsList.remove('fa-xmark');
+        elClsList.add('fa-bars');
+    }
+} // Toggle icons
 
 //=== About Carousel ===//
 const carouselItems = document.querySelectorAll('[data-carousel-item]');

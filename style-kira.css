@@ -99,7 +99,7 @@ ul {
 
 header {
     width: 100%;
-    min-height: 5vh;
+    height: 10vh;
     padding: 1.5em 2em;
     display: flex;
     align-items: center;
@@ -242,6 +242,10 @@ span[class^='tool-tip-']::before {
 }
 
 @media screen and (max-width: 1024px) {
+    header {
+        height: 6vh;
+    }
+
     .nav-items {
         column-gap: 0.75em;
         margin-left: 1em;
@@ -275,14 +279,14 @@ span[class^='tool-tip-']::before {
     }
 
     .nav-sm-bar {
-        --tt: -90vh;
+        --tt: -100vh;
         display: flex;
         width: 100%;
         justify-content: center;
         text-align: center;
         position: fixed;
         left: 0;
-        top: 7vh;
+        top: 6vh;
         background-color: var(--color-neutral);
         transform: translateY(var(--tt));
         transition: transform 0.25s ease-in-out;
@@ -290,7 +294,7 @@ span[class^='tool-tip-']::before {
     }
 
     .nav-sm-bar-toggler {
-        --tt: 0vh;
+        --tt: 0;
     }
 
     .nav-items-for-sm li {
@@ -302,11 +306,16 @@ span[class^='tool-tip-']::before {
     .nav-items-for-sm li a {
         font-size: 0.875rem;
     }
+
+    .right-side-item-2 {
+        display: none;
+    }
 }
 
 /* --- Profile --- */
 
 .profile-modal {
+    width: 50%;
     max-width: 480px;
     min-height: 320px;
     padding: 4em 2em;
@@ -364,13 +373,18 @@ span[class^='tool-tip-']::before {
     background-color: var(--color-neutral);
 }
 
+@media screen and (max-width: 640px) {
+    .profile-modal {
+        min-width: 90%;
+    }
+}
+
 /* --- Search ---*/
 
 .search {
     --d: none;
     padding: 1.5em;
     min-width: 320px;
-    display: flex;
     gap: 0.5em;
     position: absolute;
     right: 32px;
@@ -394,13 +408,16 @@ span[class^='tool-tip-']::before {
 
 .search-list .cols {
     margin-top: 1em;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 0;
 }
 
 .search-item {
     display: none;
 }
 
-.search-list .cols .col:first-of-type img {
+.search-item-img {
     width: 50px;
 }
 
@@ -413,6 +430,23 @@ span[class^='tool-tip-']::before {
     --d: block;
 }
 
+@media screen and (max-width: 640px) {
+    .search {
+        --d: block;
+        min-width: 100vw;
+        position: fixed;
+        left: 50%;
+        top: 6vh;
+        transform: translateX(-50%);
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .search-sm-toggler {
+        --d: none;
+    }
+}
+
 /* --- Wishlist --- */
 
 .wishlist {
@@ -420,13 +454,12 @@ span[class^='tool-tip-']::before {
     width: 100vw;
     height: 100vh;
     overflow: scroll;
-    padding: 2em;
     position: fixed;
     top: 0;
     right: var(--r);
     background-color: var(--color-neutral);
     transition: right 0.4s ease-out;
-    z-index: 1;
+    z-index: 2;
 }
 
 .wishlist-toggler {
@@ -436,7 +469,7 @@ span[class^='tool-tip-']::before {
 .wishlist-close-btn {
     width: 32px;
     height: 32px;
-    display: flex !important;
+    display: flex;
     justify-content: center;
     align-items: center;
     position: absolute;
@@ -457,31 +490,56 @@ span[class^='tool-tip-']::before {
 }
 
 .wishlist .container {
-    padding: 1em 0;
+    padding: 3em 0;
 }
 
-.wishlist .cols .col {
-    flex-basis: 25%;
-    padding: 0.5em;
+.wishlist-grid-row {
+    display: grid;
+    position: relative;
+    grid-template-columns: 132px 1fr 2fr 1fr;
+    align-items: center;
+}
+
+.wishlist-grid-row:first-of-type {
+    margin-top: 2em;
+}
+
+li[class^='wishlist-item-col-'] {
+    padding: 1em;
     text-align: left;
 }
 
-.wishlist .cols img {
-    width: 100px;
+.wishlist-item-col-1 {
+    grid-column: 1/2;
 }
 
-.price-col {
+.wishlist-item-col-2 {
+    grid-column: 2/3;
+}
+
+.wishlist-item-col-3 {
+    grid-column: 3/4;
+}
+
+.wishlist-item-col-4 {
+    grid-column: 4/-1;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.price-col .remove-btn {
+.wishlist-grid-row .wishlist-item-img {
+    width: 100px;
+}
+
+.remove-btn {
     width: 24px;
     height: 24px;
     display: flex;
     justify-content: center;
     align-items: center;
+    position: absolute;
+    right: 8px;
     color: var(--color-light);
     background-color: #f00;
     border-radius: 4px;
@@ -491,6 +549,56 @@ span[class^='tool-tip-']::before {
 .empty-cart-text {
     margin-top: 2em;
     font-size: 2rem;
+}
+
+@media screen and (max-width: 768px) {
+    .empty-cart-text {
+        font-size: 1.25rem;
+    }
+
+    .wishlist-item-text {
+        font-size: 0.875rem;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .wishlist .container {
+        padding: 2em auto;
+    }
+
+    .wishlist .wishlist-grid-row {
+        grid-template-columns: repeat(2, auto);
+        grid-template-rows: repeat(3, auto);
+        justify-content: start;
+        padding: 0.75em;
+        background-color: var(--color-light);
+    }
+
+    li[class^='wishlist-item-col-'] {
+        padding: 0.5em;
+    }
+
+    .wishlist-item-col-1 {
+        grid-column: 1/2;
+        grid-row: 1/-1;
+    }
+
+    .wishlist-item-col-2 {
+        grid-column: 2-1;
+        grid-row: 1/2;
+    }
+    .wishlist-item-col-3 {
+        grid-column: 2/-1;
+        grid-row: 2/3;
+    }
+    .wishlist-item-col-4 {
+        grid-column: 2/-1;
+        grid-row: 3/-1;
+    }
+
+    .wishlist-item-col-4 p {
+        flex-grow: 3;
+    }
 }
 
 /* ---Hero--- */
@@ -1308,7 +1416,7 @@ button[class^='banner-btn']:active::after {
     }
 
     .input-group input[type='email'] {
-        min-width: 100%;
+        min-width: 90%;
     }
 }
 
