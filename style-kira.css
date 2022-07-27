@@ -316,7 +316,7 @@ span[class^='tool-tip-']::before {
 
 .profile-modal {
     width: 50%;
-    max-width: 480px;
+    max-width: 640px;
     min-height: 320px;
     padding: 4em 2em;
     position: fixed;
@@ -539,7 +539,7 @@ li[class^='wishlist-item-col-'] {
     justify-content: center;
     align-items: center;
     position: absolute;
-    right: 8px;
+    right: 16px;
     color: var(--color-light);
     background-color: #f00;
     border-radius: 4px;
@@ -728,6 +728,7 @@ li[class^='wishlist-item-col-'] {
 
 .featured-cards {
     justify-content: center;
+    align-items: center;
 }
 
 .featured-cards .card {
@@ -1595,7 +1596,7 @@ footer .even-col {
 }
 
 .floating-message .fa-solid {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     color: var(--color-light);
 }
 
