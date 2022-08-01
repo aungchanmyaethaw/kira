@@ -186,6 +186,9 @@ cartBtns.forEach(function (btn, i) {
         wishListItemDelBtns.forEach(function (btn, i) {
             btn.addEventListener('click', function (e) {
                 wishListContainerEl.removeChild(wishListItems[i]);
+                if (wishListContainerEl.childElementCount === 0) {
+                    wishListContainerEl.appendChild(emptyCartText);
+                }
             });
         }); //delete item using red cross btn
     });
