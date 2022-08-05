@@ -546,6 +546,10 @@ li[class^='wishlist-item-col-'] {
     cursor: pointer;
 }
 
+.remove-btn .fa-solid {
+    pointer-events: none;
+}
+
 .empty-cart-text {
     margin-top: 2em;
     font-size: 2rem;

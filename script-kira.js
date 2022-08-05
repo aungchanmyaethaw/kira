@@ -92,7 +92,7 @@ for (let i = 0; i < count; i++) {
                     </a>`;
 } //Adding itemList Dynamically
 
-const itemLists = document.querySelectorAll('[data-list]'); //List
+const SearchLists = document.querySelectorAll('[data-list]'); //List
 
 searchInput.addEventListener('keyup', function (event) {
     searchProduct(event);
@@ -114,13 +114,13 @@ function searchProduct(event) {
             brand.includes(searchValue) || product.includes(searchValue);
 
         if (isFound) {
-            itemLists[i].style.display = 'block';
+            SearchLists[i].style.display = 'block';
         } else {
-            itemLists[i].style.display = 'none';
+            SearchLists[i].style.display = 'none';
         }
 
         if (searchValue === '') {
-            itemLists[i].style.display = 'none';
+            SearchLists[i].style.display = 'none';
         }
     }
 }
@@ -146,18 +146,90 @@ wishListBoxCloseBtn.addEventListener('click', () => {
 const cartBtns = document.querySelectorAll('[data-cart]');
 const emptyCartText = document.querySelector('[data-empty-cart]');
 
+let itemLists;
+
+function getList() {
+    if (localStorage.getItem('keep.lists') === null) {
+        itemLists = [];
+    } else {
+        itemLists = JSON.parse(localStorage.getItem('keep.lists'));
+    }
+
+    return itemLists;
+}
+
+function addItemToLocalStorage(id, img, brand, product, price) {
+    let itemLists = getList();
+
+    let itemList = {
+        id: id,
+        image: img,
+        brand: brand,
+        product: product,
+        price: price,
+    };
+
+    itemLists.push(itemList);
+    localStorage.setItem('keep.lists', JSON.stringify(itemLists));
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+    const itemLists = getList();
+
+    itemLists.forEach((item) => {
+        addListToUI(item.id, item.image, item.brand, item.product, item.price);
+    });
+});
+
 cartBtns.forEach(function (btn, i) {
-    btn.addEventListener('click', function (e) {
+    btn.addEventListener('click', function () {
         const img = productDetails.imgs[i];
         const brand = productDetails.brands[i];
         const product = productDetails.products[i];
         const price = productDetails.prices[i];
+        const id = Math.floor(Math.random() * 2000);
+        addListToUI(id, img, brand, product, price);
+        addItemToLocalStorage(id, img, brand, product, price);
+    });
+});
 
-        if (wishListContainerEl.firstElementChild === emptyCartText) {
-            wishListContainerEl.removeChild(emptyCartText);
+// --- Remove Items from Lists
+
+wishListContainerEl.addEventListener('click', (e) => {
+    if (e.target.classList.contains('remove-btn')) {
+        const itemList = e.target.closest('.wishlist-item-list');
+        itemList.remove();
+        const id = itemList.querySelector('span').textContent;
+        if (wishListContainerEl.childElementCount === 0) {
+            wishListContainerEl.appendChild(emptyCartText);
         }
 
-        wishListContainerEl.innerHTML += `<ul class="wishlist-grid-row wishlist-item-list">
+        removeItemFromLocalStorage(Number(id));
+    }
+});
+
+// --- Remove Items from LocalStorage
+
+function removeItemFromLocalStorage(id) {
+    let lists = getList();
+
+    lists.forEach((list, i) => {
+        if (list.id === id) {
+            lists.splice(i, 1);
+        }
+    });
+
+    localStorage.setItem('keep.lists', JSON.stringify(lists));
+}
+
+function addListToUI(id, img, brand, product, price) {
+    if (wishListContainerEl.firstElementChild === emptyCartText) {
+        wishListContainerEl.removeChild(emptyCartText);
+    }
+    wishListContainerEl.innerHTML += `
+       
+    <ul class="wishlist-grid-row wishlist-item-list">
+     <span hidden>${id}</span>
                         <li class="wishlist-item-col-1">
                             <div class="wishlist-item-img">
                                 <img src="${img}" alt="" />
@@ -178,21 +250,8 @@ cartBtns.forEach(function (btn, i) {
                                 ></i>
                             </div>
                         </li>
-                    </ul>`; //adding items into wishlistcontainer
-
-        const wishListItemDelBtns = document.querySelectorAll('.remove-btn');
-        const wishListItems = document.querySelectorAll('.wishlist-item-list');
-
-        wishListItemDelBtns.forEach(function (btn, i) {
-            btn.addEventListener('click', function (e) {
-                wishListContainerEl.removeChild(wishListItems[i]);
-                if (wishListContainerEl.childElementCount === 0) {
-                    wishListContainerEl.appendChild(emptyCartText);
-                }
-            });
-        }); //delete item using red cross btn
-    });
-});
+                    </ul>`;
+}
 
 //=== Small-Device navbar===//
 
